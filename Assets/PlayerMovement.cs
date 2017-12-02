@@ -41,4 +41,10 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 	}
+
+	public void setDisabled(bool disabled, float time = 2.0f) {
+		this.gameObject.GetComponent<Animator>().SetBool("Walk", false);
+		this.disabled = disabled;
+		this.timeDisabled = time;
+	}
 }

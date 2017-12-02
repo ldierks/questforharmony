@@ -19,7 +19,7 @@ public class JumpingBase : MonoBehaviour {
 		if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") > 0) {
 			collider.gameObject.transform.position = this.gameObject.transform.Find("JumpingGoal").gameObject.transform.position;
 
-			this.gameObject.GetComponentInParent<BarrierCollision>().enabled = false;
+			this.gameObject.GetComponentInParent<BarrierCollision>().collisionEnabled = false;
 		}
 	}
 

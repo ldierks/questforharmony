@@ -23,20 +23,16 @@ public class Room : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (this.fadein) {
-			Debug.Log("Increase volume");
 			this.audio.volume = Mathf.Min(this.audio.volume + this.fadeInOutSpeed, 1.0f);
 		}
 		if (this.fadein == true && this.audio.volume == 1.0f) {
-			Debug.Log("fadein stop");
 			this.fadein = false;
 		}
 
 		if (this.fadeout) {
 			this.audio.volume = Mathf.Max(this.audio.volume - this.fadeInOutSpeed, 0.0f);
-			Debug.Log("Decrease stop");
 		}
 		if (this.fadeout == true && this.audio.volume == 0.0f) {
-			Debug.Log("fadeout stop");
 			this.fadeout = false;
 			this.audio.Stop();
 		}
@@ -51,7 +47,6 @@ public class Room : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider collider) {
-		Debug.Log("Exit " + this.gameObject.name + " " + collider.name);
 
 		this.fadein = false;
 		this.fadeout = true;
@@ -59,7 +54,6 @@ public class Room : MonoBehaviour {
 
 
 	void PlaySound() {
-		Debug.Log("Play sound");
 
 		audio.Play();
 	}
