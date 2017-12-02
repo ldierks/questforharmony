@@ -7,7 +7,7 @@ function Start () {
  
 function Update () {
  
-if(Input.GetKey("a") && Input.GetMouseButton(1) || Input.GetKey("w") && Input.GetMouseButton(1) || Input.GetKey("d") &&         Input.GetMouseButton(1)
+if(Input.GetKey("a") && Input.GetMouseButton(1) || Input.GetKey("w") && Input.GetMouseButton(1) || Input.GetKey("d") && Input.GetMouseButton(1)
 || Input.GetKey("s") && Input.GetMouseButton(1) || Input.GetKey("w") && Input.GetMouseButton(0) || Input.GetKey("s") && Input.GetMouseButton(0)
 || Input.GetKey("w") || Input.GetKey("s")) {
  
