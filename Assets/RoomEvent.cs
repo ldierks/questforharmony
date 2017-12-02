@@ -50,7 +50,7 @@ public class RoomEvent : MonoBehaviour
 			this.fadein = true;
 			this.eventEnabled = false;
 			//collider.GetComponent<PlayerMovement>().setDisabled(true, this.audio.clip.length + 0.5f);
-			this.gameObject.GetComponent<Animator>().SetTrigger("RoomEntered");
+			this.gameObject.GetComponent<Animator>().SetBool("RoomEntered", true);
 			Debug.Log(this.gameObject.GetComponent<Animator>().name);
 		}
 	}

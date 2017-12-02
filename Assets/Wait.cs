@@ -16,18 +16,21 @@ public class Wait : StateMachineBehaviour {
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		if (Time.time - this.startTime >= this.waitingTime) {
-			animator.SetTrigger("Timeout");
+			animator.SetBool("Timeout", true);
 		} else if (Input.GetAxis("Vertical") > 0) {
-			animator.SetTrigger("Yes");
+			animator.SetBool("Yes", true);
 		} else if (Input.GetAxis("Vertical") < 0) {
-			animator.SetTrigger("No");
+			animator.SetBool("No", true);
 		}
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//}
+	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		animator.SetBool("Timeout", false);
+		animator.SetBool("Yes", false);
+		animator.SetBool("No", false);
+
+	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	//override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
