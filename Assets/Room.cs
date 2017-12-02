@@ -7,10 +7,11 @@ public class Room : MonoBehaviour {
 
 	public AudioClip backgroundSound;
 	public new AudioSource audio;
+	public float maxBackgrVolume;
+	public float fadeInOutSpeed;
 
 	bool fadein = false;
 	bool fadeout = false;
-	public float fadeInOutSpeed;
 	//public bool preloadAudioData;
 
 	// Use this for initialization
@@ -23,9 +24,9 @@ public class Room : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (this.fadein) {
-			this.audio.volume = Mathf.Min(this.audio.volume + this.fadeInOutSpeed, 1.0f);
+			this.audio.volume = Mathf.Min(this.audio.volume + this.fadeInOutSpeed, maxBackgrVolume);
 		}
-		if (this.fadein == true && this.audio.volume == 1.0f) {
+		if (this.fadein == true && this.audio.volume == maxBackgrVolume) {
 			this.fadein = false;
 		}
 
