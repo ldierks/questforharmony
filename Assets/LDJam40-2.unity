@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSound: {fileID: 8300000, guid: 65147b8a820dd4d158502cd086d5f73d, type: 3}
   audio: {fileID: 0}
+  maxBackgrVolume: 0.5
   fadeInOutSpeed: 0.01
 --- !u!23 &292318207
 MeshRenderer:
@@ -337,7 +338,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9279a144f9d7f8140bbcc8728f95ca99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -684,6 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSound: {fileID: 8300000, guid: 65147b8a820dd4d158502cd086d5f73d, type: 3}
   audio: {fileID: 0}
+  maxBackgrVolume: 0.5
   fadeInOutSpeed: 0.01
 --- !u!23 &1135890649
 MeshRenderer:
@@ -897,7 +899,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dab94b01df88517428b91df725acc014, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1001,7 +1003,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e762d000aa7b03449b955d0fae901b25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1047,8 +1049,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688349813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.86, y: 0, z: -0.29846966}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.05, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 30}
   m_Children:
   - {fileID: 1745751545}
   m_Father: {fileID: 0}
@@ -1095,7 +1097,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c05250d33e43ca04788384771b988143, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d848f6efc7d8df1469775a21c5a7846a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1379,6 +1381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSound: {fileID: 8300000, guid: 65147b8a820dd4d158502cd086d5f73d, type: 3}
   audio: {fileID: 0}
+  maxBackgrVolume: 0.5
   fadeInOutSpeed: 0.01
 --- !u!23 &1796322045
 MeshRenderer:
@@ -1559,6 +1562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSound: {fileID: 8300000, guid: 65147b8a820dd4d158502cd086d5f73d, type: 3}
   audio: {fileID: 0}
+  maxBackgrVolume: 0.1
   fadeInOutSpeed: 0.01
 --- !u!23 &2040575438
 MeshRenderer:
