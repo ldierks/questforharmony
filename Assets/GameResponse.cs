@@ -12,7 +12,7 @@ public class GameResponse : StateMachineBehaviour {
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		this.startTime = Time.time;
-		this.waitingTime = 10;
+		this.waitingTime = 1;
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -32,21 +32,20 @@ public class GameResponse : StateMachineBehaviour {
 		}
 			
 
-		if (Time.time - this.startTime >= this.waitingTime) {
-			animator.SetBool("Timeout", true);
-		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey == 0)   ||
-			(Input.GetAxis("Horizontal") > 0 && this.correctKey == 1) ||
-			(Input.GetAxis("Vertical") < 0 && this.correctKey == 2)	  ||
-			(Input.GetAxis("Horizontal") < 0 && this.correctKey == 3)) {
-
-			animator.SetBool("Correct", true);
-		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey != 0)   ||
+		if (Time.time - this.startTime >= this.waitingTime ||
+			(Input.GetAxis("Vertical") > 0 && this.correctKey != 0)   ||
 			(Input.GetAxis("Horizontal") > 0 && this.correctKey != 1) ||
 			(Input.GetAxis("Vertical") < 0 && this.correctKey != 2)	  ||
 			(Input.GetAxis("Horizontal") < 0 && this.correctKey != 3)) {
 
 			animator.gameObject.GetComponent<MiniGameScore>().increaseFailures();
 			animator.SetBool("Incorrect", true);
+		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey == 0)   ||
+			(Input.GetAxis("Horizontal") > 0 && this.correctKey == 1) ||
+			(Input.GetAxis("Vertical") < 0 && this.correctKey == 2)	  ||
+			(Input.GetAxis("Horizontal") < 0 && this.correctKey == 3)) {
+
+			animator.SetBool("Correct", true);
 		}
 	}
 

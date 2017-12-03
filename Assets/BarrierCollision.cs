@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarrierCollision : MonoBehaviour {
 
 	public bool collisionEnabled;
+	public bool jump;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,7 @@ public class BarrierCollision : MonoBehaviour {
 
 		if (this.collisionEnabled) {
 			Debug.Log("Collision enabled");
-			player.transform.position = this.gameObject.transform.Find("JumpingBase").gameObject.transform.position;
+			player.transform.position = this.gameObject.transform.Find("Base").gameObject.transform.position;
 			player.GetComponent<PlayerMovement>().setDisabled(true);
 			//player.GetComponent<PlayerMovement>().disabled = true;
 			player.GetComponent<PlayerLife>().decreaseLives();
