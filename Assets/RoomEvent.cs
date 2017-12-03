@@ -56,9 +56,9 @@ public class RoomEvent : MonoBehaviour
 	}
 
 	void OnTriggerExit(Collider collider) {
-
 		this.fadein = false;
 		this.fadeout = true;
+
 	}
 
 
