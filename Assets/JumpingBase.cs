@@ -15,11 +15,15 @@ public class JumpingBase : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider collider) {
-
-		if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") > 0) {
-			collider.gameObject.transform.position = this.gameObject.transform.Find("JumpingGoal").gameObject.transform.position;
+		Debug.Log("OnTriggerStay");
+		 
+		if ((Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") > 0 && this.gameObject.GetComponentInParent<BarrierCollision>().jump) ||
+			(Input.GetAxis("Vertical") < 0 && Input.GetAxis("Horizontal") > 0 && !this.gameObject.GetComponentInParent<BarrierCollision>().jump)) {
+			collider.gameObject.transform.position = this.gameObject.transform.Find("Goal").gameObject.transform.position;
 
 			this.gameObject.GetComponentInParent<BarrierCollision>().collisionEnabled = false;
+			this.gameObject.GetComponent<AudioSource>().Play();
+
 		}
 	}
 

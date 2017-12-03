@@ -12,40 +12,40 @@ public class GameResponse : StateMachineBehaviour {
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		this.startTime = Time.time;
-		this.waitingTime = 10;
+		this.waitingTime = 1;
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		if (Input.GetAxis("Vertical") > 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[0];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[0];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		} else if (Input.GetAxis("Vertical") < 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[2];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[2];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		} else if (Input.GetAxis("Horizontal") > 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[1];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[1];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		} else if (Input.GetAxis("Horizontal") < 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[3];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[3];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		}
 			
 
-		if (Time.time - this.startTime >= this.waitingTime) {
-			animator.SetBool("Timeout", true);
-		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey == 0)   ||
-			(Input.GetAxis("Horizontal") > 0 && this.correctKey == 1) ||
-			(Input.GetAxis("Vertical") < 0 && this.correctKey == 2)	  ||
-			(Input.GetAxis("Horizontal") < 0 && this.correctKey == 3)) {
-			animator.SetBool("Correct", true);
-		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey != 0)   ||
+		if (Time.time - this.startTime >= this.waitingTime ||
+			(Input.GetAxis("Vertical") > 0 && this.correctKey != 0)   ||
 			(Input.GetAxis("Horizontal") > 0 && this.correctKey != 1) ||
 			(Input.GetAxis("Vertical") < 0 && this.correctKey != 2)	  ||
 			(Input.GetAxis("Horizontal") < 0 && this.correctKey != 3)) {
 
 			animator.gameObject.GetComponent<MiniGameScore>().increaseFailures();
 			animator.SetBool("Incorrect", true);
+		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey == 0)   ||
+			(Input.GetAxis("Horizontal") > 0 && this.correctKey == 1) ||
+			(Input.GetAxis("Vertical") < 0 && this.correctKey == 2)	  ||
+			(Input.GetAxis("Horizontal") < 0 && this.correctKey == 3)) {
+
+			animator.SetBool("Correct", true);
 		}
 	}
 
