@@ -18,16 +18,16 @@ public class GameResponse : StateMachineBehaviour {
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		if (Input.GetAxis("Vertical") > 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[0];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[0];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		} else if (Input.GetAxis("Vertical") < 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[2];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[2];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		} else if (Input.GetAxis("Horizontal") > 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[1];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[1];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		} else if (Input.GetAxis("Horizontal") < 0) {
-			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerKeytones>().keytones[3];
+			animator.gameObject.GetComponent<AudioSource>().clip = GameObject.Find("Player").GetComponent<PlayerTones>().keytones[3];
 			animator.gameObject.GetComponent<AudioSource>().Play();
 		}
 			

@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d96e94a0e99ea4da01ddfa110e5296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 2052e64a951e4c94eb7909f880db2705, type: 3}
+  clip: {fileID: 8300000, guid: 77f39950d07419e47bc4c51e416193ed, type: 3}
 --- !u!114 &114279921950814118
 MonoBehaviour:
   m_ObjectHideFlags: 1
