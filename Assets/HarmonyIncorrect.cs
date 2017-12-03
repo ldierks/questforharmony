@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetAnimatorVariables : StateMachineBehaviour {
+public class HarmonyIncorrect : StateMachineBehaviour {
 
-	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		GameObject.Find("Event_1_3_MiniGame").GetComponent<Animator>().SetBool("RoomEntered", true);
-		//this.animatorGameObj.GetComponent<Animator>().SetBool("RoomEntered", true);
+		animator.gameObject.GetComponent<MiniGameScore>().increaseFailures();
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

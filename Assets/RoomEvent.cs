@@ -43,7 +43,7 @@ public class RoomEvent : MonoBehaviour
 
 	void OnTriggerEnter(Collider collider) {
 		if (this.eventEnabled) {
-			Debug.Log("Enter " + this.gameObject.name + " " + collider.name);
+			//Debug.Log("Enter " + this.gameObject.name + " " + collider.name);
 
 			//this.PlaySound();
 			this.fadeout = false;
@@ -51,7 +51,6 @@ public class RoomEvent : MonoBehaviour
 			this.eventEnabled = false;
 			//collider.GetComponent<PlayerMovement>().setDisabled(true, this.audio.clip.length + 0.5f);
 			this.gameObject.GetComponent<Animator>().SetBool("RoomEntered", true);
-			Debug.Log(this.gameObject.GetComponent<Animator>().name);
 		}
 	}
 
