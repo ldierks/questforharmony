@@ -38,6 +38,7 @@ public class GameResponse : StateMachineBehaviour {
 			(Input.GetAxis("Horizontal") > 0 && this.correctKey == 1) ||
 			(Input.GetAxis("Vertical") < 0 && this.correctKey == 2)	  ||
 			(Input.GetAxis("Horizontal") < 0 && this.correctKey == 3)) {
+
 			animator.SetBool("Correct", true);
 		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey != 0)   ||
 			(Input.GetAxis("Horizontal") > 0 && this.correctKey != 1) ||
