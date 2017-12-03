@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed;
 	public float timeDisabled;
-	public bool disabled = false;
+	public bool movementDisabled = false;
 	private float timer = 0.0f;
 
 	// Use this for initialization
@@ -17,12 +17,12 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 
-		if (this.disabled) {
+		if (this.movementDisabled) {
 			if (this.timer == 0.0f) {
 				this.timer = Time.time;
 			}
 			if (Time.time - this.timer > timeDisabled) {
-				this.disabled = false;
+				this.movementDisabled = false;
 				this.timer = 0.0f;
 			}
 		} else {
@@ -42,9 +42,9 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	public void setDisabled(bool disabled, float time = 2.0f) {
+	public void setDisabled(bool movementDisabled, float time = 2.0f) {
 		this.gameObject.GetComponent<Animator>().SetBool("Walk", false);
-		this.disabled = disabled;
+		this.movementDisabled = movementDisabled;
 		this.timeDisabled = time;
 	}
 }
