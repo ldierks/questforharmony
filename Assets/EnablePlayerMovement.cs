@@ -2,32 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialog : StateMachineBehaviour {
+public class EnablePlayerMovement : StateMachineBehaviour {
 
-	public AudioClip clip;
-	private float startTime;
-	private float clipLength;
+	public bool enablePlayerMovement;
 
-	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		animator.gameObject.GetComponent<AudioSource>().clip = this.clip;
-		this.clipLength = clip.length;
-		animator.gameObject.GetComponent<AudioSource>().Play();
-		this.startTime = Time.time;
-	}
-
-	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		if (Time.time - this.startTime >= this.clipLength) {
-			//GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
-			animator.SetBool("ClipFinished", true);
+		if (!this.enablePlayerMovement) {
+			GameObject.Find("Player").GetComponent<PlayerMovement>().setDisabled(true, 0);
+			GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = false;
 		}
 	}
 
+	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+	//
+	//}
+
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		animator.SetBool("ClipFinished", false);
-		animator.SetBool("RoomEntered", false);
+		if (this.enablePlayerMovement) {
+			GameObject.Find("Player").GetComponent<PlayerMovement>().enabled = true;
+		}
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
