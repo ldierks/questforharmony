@@ -42,7 +42,9 @@ public class Room : MonoBehaviour {
 	void OnTriggerEnter(Collider collider) {
 		Debug.Log("Enter " + this.gameObject.name + " " + collider.name);
 
-		this.PlaySound();
+		if (this.audio != null) {
+			this.PlaySound();
+		}
 		this.fadeout = false;
 		this.fadein = true;
 	}
