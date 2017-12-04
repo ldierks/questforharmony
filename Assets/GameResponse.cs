@@ -38,7 +38,6 @@ public class GameResponse : StateMachineBehaviour {
 			(Input.GetAxis("Vertical") < 0 && this.correctKey != 2)	  ||
 			(Input.GetAxis("Horizontal") < 0 && this.correctKey != 3)) {
 
-			animator.gameObject.GetComponent<MiniGameScore>().increaseFailures();
 			animator.SetBool("Incorrect", true);
 		} else if (	(Input.GetAxis("Vertical") > 0 && this.correctKey == 0)   ||
 			(Input.GetAxis("Horizontal") > 0 && this.correctKey == 1) ||

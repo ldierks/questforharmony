@@ -28,7 +28,8 @@ public class MiniGameScore : MonoBehaviour {
 	}
 
 	public bool gameOver() {
-		return this.currentFailures <= this.maxFailures;
+		Debug.Log("failures: " + this.currentFailures);
+		return this.currentFailures >= this.maxFailures;
 	}
 
 	public void startTimer() {

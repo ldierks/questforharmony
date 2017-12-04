@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetAnimatorVariables : StateMachineBehaviour {
+public class EnableObject : StateMachineBehaviour {
+	public string objName;
 
-	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		GameObject.Find("Event_1_3_MiniGame").GetComponent<Animator>().SetBool("RoomEntered", true);
-		//this.animatorGameObj.GetComponent<Animator>().SetBool("RoomEntered", true);
+		Debug.Log(objName);
+		GameObject.Find(objName).transform.position = GameObject.Find("Player").transform.position;
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
